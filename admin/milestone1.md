@@ -15,5 +15,7 @@ Last week, I did a lot of research on how to hack a virtual machine. My teammate
 Something that I am stuck on is that I do not own an Apple machine. Thus, most of my contributions to the team will be design, research, and making small tweaks to Swift code on our Github. I will work closely with my team (all of whom have Apple laptops) to better our app. 
 
 [Commits](https://github.com/ECS153/final-project-group-6/commits/master)
-[Video](https://www.youtube.com/watch?v=B92vSN5K4Rc)
+
+[Video](https://drive.google.com/file/d/1WGzeEr2I0qOTCFcUW3zSgoUUWyK4UWoa/view)
+
 [Design Doc](https://docs.google.com/document/d/1vm11j8nEE6qRhWhGOlbQBqUcBaNt2D_XDwo3NaNZJ4E/edit)
