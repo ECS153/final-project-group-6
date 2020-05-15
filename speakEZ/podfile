@@ -1,2 +1,3 @@
 target 'speakEZ' do
+	pod 'PhoneNumberKit', '~> 3.0'
 end

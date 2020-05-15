@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07A8CA82246E58C000CAB800 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A8CA81246E58C000CAB800 /* LoginViewController.swift */; };
 		07DCDAC6246B66CE0051F441 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCDAC5246B66CE0051F441 /* AppDelegate.swift */; };
 		07DCDAC8246B66CE0051F441 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCDAC7246B66CE0051F441 /* SceneDelegate.swift */; };
 		07DCDACA246B66CE0051F441 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCDAC9246B66CE0051F441 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07A8CA81246E58C000CAB800 /* LoginViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		07DCDAC2246B66CE0051F441 /* speakEZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speakEZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07DCDAC5246B66CE0051F441 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07DCDAC7246B66CE0051F441 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				07DCDAC7246B66CE0051F441 /* SceneDelegate.swift */,
 				07DCDAC9246B66CE0051F441 /* ViewController.swift */,
 				07DCDACB246B66CE0051F441 /* Main.storyboard */,
+				07A8CA81246E58C000CAB800 /* LoginViewController.swift */,
 				07DCDACE246B66CE0051F441 /* Assets.xcassets */,
 				07DCDAD0246B66CE0051F441 /* LaunchScreen.storyboard */,
 				07DCDAD3246B66CE0051F441 /* Info.plist */,
@@ -80,7 +83,6 @@
 				9A5D5A76E2BFE19E40F3367A /* Pods-speakEZ.debug.xcconfig */,
 				F25A535447545378C4DF2165 /* Pods-speakEZ.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -103,6 +105,7 @@
 				07DCDABE246B66CE0051F441 /* Sources */,
 				07DCDABF246B66CE0051F441 /* Frameworks */,
 				07DCDAC0246B66CE0051F441 /* Resources */,
+				0976DAB507053AC5CFC56A7D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -160,6 +163,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0976DAB507053AC5CFC56A7D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-speakEZ/Pods-speakEZ-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-speakEZ/Pods-speakEZ-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-speakEZ/Pods-speakEZ-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		78DA178705A7E54433BAC453 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -189,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A8CA82246E58C000CAB800 /* LoginViewController.swift in Sources */,
 				07DCDACA246B66CE0051F441 /* ViewController.swift in Sources */,
 				07DCDAC6246B66CE0051F441 /* AppDelegate.swift in Sources */,
 				07DCDAC8246B66CE0051F441 /* SceneDelegate.swift in Sources */,

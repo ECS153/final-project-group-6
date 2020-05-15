@@ -32,8 +32,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		self.chatTable.delegate = self
 	}
 	
+	
+	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return "Section: \(section)"
+	}
+	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return numCells
+	
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

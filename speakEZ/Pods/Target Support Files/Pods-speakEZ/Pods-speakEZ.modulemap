@@ -1,0 +1,6 @@
+module Pods_speakEZ {
+  umbrella header "Pods-speakEZ-umbrella.h"
+
+  export *
+  module * { export * }
+}
