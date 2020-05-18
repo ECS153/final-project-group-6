@@ -10,9 +10,8 @@ For our group members or anyone who wants to run our code, here is a simple brea
     -   `npm install --save socket.io`  // real-time module for our app
 - If you have errors with [express](https://expressjs.com/) or [socket](https://socket.io/docs/), please refer to their websites. 
 
-Now, if you `cd` into the file on your terminal, run `node server.js`, and headover to `localhost:7777` in your browser, you should see your HTML file being served.
-
 # Running our Code
- -  `cd` into the `webchat` directory on your terminal where `server.js` is located.
+ - `cd` into the `webchat` directory on your terminal where `server.js` is located.
+ - Run  `node server.js` 
  - Open your favorite terminal to checkout **http://localhost:7777**.
  - You should see the HTML file being served. If not, double check you have all the proper packages and dependencies downloaded :) 
