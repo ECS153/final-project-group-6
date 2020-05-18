@@ -8,7 +8,7 @@ For our group members or anyone who wants to run our code, here is a simple brea
 -   install dependencies by running:
     -   `npm install --save express`  // a web framework for node
     -   `npm install --save socket.io`  // real-time module for our app
-- If you have errors with [express]([https://expressjs.com/](https://expressjs.com/)) or [socket](https://socket.io/docs/), please refer to their websites. 
+- If you have errors with [express](https://expressjs.com/) or [socket](https://socket.io/docs/), please refer to their websites. 
 
 Now, if you `cd` into the file on your terminal, run `node server.js`, and headover to `localhost:7777` in your browser, you should see your HTML file being served.
 
