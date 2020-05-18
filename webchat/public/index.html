@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>speakEZ Chat</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>Chat here!</h1>
+
+        <!-- form with input for the message (with an id), and the submit button-->
+        <form>
+            <input id="message" type="text" placeholder="message" />
+            <input type="submit" value="Send" />
+        </form>
+      
+        <ul id="thread"></ul>
+        
+        <!--link JQuery for our client side JavaScript-->      
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+      
+        <script src="/socket.io/socket.io.js"></script>
+      
+        <script src="client.js"></script>
+    </body>
+</html>
