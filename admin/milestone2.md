@@ -17,4 +17,4 @@ Last week, our team discussed switching from an iOS chat app to a web chat app. 
 
 [Video](https://drive.google.com/file/d/1nC-g1A_Xirgi5O4OMXUvZP23ofKonKwq/view?usp=sharing)
 
-[Design Doc](https://docs.google.com/document/d/1vm11j8nEE6qRhWhGOlbQBqUcBaNt2D_XDwo3NaNZJ4E/edit)
+[Design Doc](https://docs.google.com/document/d/1k-ttte-qb1OcJXbYxbda8sQISUnAL5TRsf72LQRvfO0/edit?usp=sharing)
