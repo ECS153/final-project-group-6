@@ -15,6 +15,6 @@ Last week, our team discussed switching from an iOS chat app to a web chat app. 
 
 [Commits](https://github.com/ECS153/final-project-group-6/commits/master)
 
-[Video](https://drive.google.com/file/d/1nC-g1A_Xirgi5O4OMXUvZP23ofKonKwq/view?usp=sharing)
+[Video](https://youtu.be/wnxC62HTsEs)
 
 [Design Doc](https://docs.google.com/document/d/1k-ttte-qb1OcJXbYxbda8sQISUnAL5TRsf72LQRvfO0/edit?usp=sharing)
