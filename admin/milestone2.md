@@ -10,11 +10,11 @@ Last week, my team and I worked on researching and implementing an iOS chat app.
 Last week, I implemented part of the message app in Swift. After researching several resources about the iOS messaging app, we decided to switch to a web chat app. This week, I have searched on how to make a chat app and start to implement the basic part of the web app. With the help of Emily, we have the basic web based chat app. We have decided to focus on login and sign up security of the web app, so I am going to research on how to implement the login on a web app. The part I am stuck on is probably how to incorporate cryptography or user authentication in a web app.
 
 ## Emily
-Last week, our team discussed switching from an iOS chat app to a web chat app. Then, we all did some research. This week I made the skeleton of our web based app. Something that I am stuck on is figuring out how to implement end-end-to-end encryption in Javascript. I’m still doing research on different implementations. Our team is also considering focusing on the sign up and login aspect of our web page.
+Last week, our team discussed switching from an iOS chat app to a web chat app. Then, I did research on web chat apps and encryption schemes. This week I made the skeleton of our web chat app. Next week, I plan on implementing AES in our chat feature. Our team is also working on the sign up and login aspect of our web page.
 
 
 [Commits](https://github.com/ECS153/final-project-group-6/commits/master)
 
-[Video](https://drive.google.com/file/d/1WGzeEr2I0qOTCFcUW3zSgoUUWyK4UWoa/view)
+[Video](https://drive.google.com/file/d/1nC-g1A_Xirgi5O4OMXUvZP23ofKonKwq/view?usp=sharing)
 
 [Design Doc](https://docs.google.com/document/d/1vm11j8nEE6qRhWhGOlbQBqUcBaNt2D_XDwo3NaNZJ4E/edit)
