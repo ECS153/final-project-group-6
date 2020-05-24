@@ -32,8 +32,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverWrite('_method'));
 
+app.engine('html', require('ejs').renderFile);
+
 app.get('/',checkAuthenticated,(req,res)=>{
-    res.render('index.ejs',{name: req.user.name})
+    // res.render('index.ejs',{name: req.user.name})
+    res.render('../../webchat/public/index.html')
 });
 
 app.get('/login',checkNotAuthenticated,(req,res)=>{
@@ -88,4 +91,6 @@ function checkNotAuthenticated(req,res,next){
     next();
 }
 
-app.listen(3000);
+app.listen(4000, function () {
+    console.log('Listening...');
+});

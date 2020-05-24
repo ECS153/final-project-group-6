@@ -1,18 +1,34 @@
-//init socket, connect to server
-var socket = io.connect("http://localhost:7777");
-socket.on("connect", function(data) {
-  socket.emit("join", "Hello server from client");
-});
+const socket = io('http://localhost:8008')
+const messageContainer = document.getElementById('message-container')
+const messageForm = document.getElementById('send-container')
+const messageInput = document.getElementById('message-input')
 
-//listener for thread event that updates messages
-socket.on("thread", function(data){
-    $("#thread").append("<li>" + data + "</li>");
-});
+const name = prompt('What is your name?')
+appendMessage('You joined')
+socket.emit('new-user', name)
 
-//sense message to server, resets & prevents default form action
-$("form").submit(function(){
-    var message = $("#message").val();
-    socket.emit("messages", message);
-    this.reset();
-    return false;
-});
+socket.on('chat-message', data => {
+  appendMessage(`${data.name}: ${data.message}`)
+})
+
+socket.on('user-connected', name => {
+  appendMessage(`${name} connected`)
+})
+
+socket.on('user-disconnected', name => {
+  appendMessage(`${name} disconnected`)
+})
+
+messageForm.addEventListener('submit', e => {
+  e.preventDefault()
+  const message = messageInput.value
+  appendMessage(`You: ${message}`)
+  socket.emit('send-chat-message', message)
+  messageInput.value = ''
+})
+
+function appendMessage(message) {
+  const messageElement = document.createElement('div')
+  messageElement.innerText = message
+  messageContainer.append(messageElement)
+}

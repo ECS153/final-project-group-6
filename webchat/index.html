@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>speakEZ</title>
+    <meta name = "google-signin-client_id" content = "406835155993-hu6tqvs1gf1h6vg8ahr87njdpumk4ql2.apps.googleusercontent.com" </meta>
+    <script src="https://apis.google.com/js/platform.js" async defer> </script>
+
+  </head>
+  <body>
+    <h1>Chat System</h1>
+    <div class="g-signin2" data-onsuccess ="isAuthenticated"></div>
+  </body>
+
+  <script>
+    function isAuthenticated(googleUser) {
+      console.log('user is ' + googleUser.getBasicProfile().getEmail())
+      window.location.replace('/hello.html');
+    }
+  </script>
+
+</html>
+
+<!-- 406835155993-hu6tqvs1gf1h6vg8ahr87njdpumk4ql2.apps.googleusercontent.com -->
+<!-- 53v3W3Fb5axgp7IQdgnqULOe -->
