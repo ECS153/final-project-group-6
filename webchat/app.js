@@ -25,11 +25,21 @@ app.get('/', (req, res) => {
 });
 
 const users = {}
+var connectedFlag = 0
+
+
 
 app.get('/chat', (req, res) =>{
   app.use(express.static("public"));
   res.render('chat');
-  // console.log("establishing connection")
+  if (connectedFlag == 0) {
+    ioConnect();
+    connectedFlag = 1;
+  }
+});
+
+
+function ioConnect() {
   io.on('connection', socket => {
     socket.on('new-user', name => {
       users[socket.id] = name
@@ -43,8 +53,7 @@ app.get('/chat', (req, res) =>{
       delete users[socket.id]
     })
   })
-});
-
+}
 
 server.listen(8008, () =>{
   console.log('listening on port 8008');
