@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use('/public', express.static('public'));
 // set up routes
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
