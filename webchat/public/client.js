@@ -3,6 +3,8 @@ const messageContainer = document.getElementById('message-container')
 const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
 const roomContainer = document.getElementById('room-container')
+const roomInput = document.getElementById('room-input')
+const roomForm = document.getElementById('submit-container')
 
 let globalBobSharedKey;
 
@@ -13,13 +15,13 @@ if(messageForm != null){
 
     messageForm.addEventListener('submit', e => {
         e.preventDefault()
-    const message = messageInput.value
-    appendMessage(`You: ${message}`)
-    //encrypt below
-    //socket.emit('send-chat-message', encrypt(message))
-    socket.emit('send-chat-message', roomName,message)
-    messageInput.value = ''
-  })
+        const message = messageInput.value
+        appendMessage(`You: ${message}`)
+        //encrypt below
+        //socket.emit('send-chat-message', encrypt(message))
+        socket.emit('send-chat-message', roomName,message)
+        messageInput.value = ''
+    })
 }
 
 socket.on('room-created', room => {
@@ -27,7 +29,8 @@ socket.on('room-created', room => {
     roomElement.innerText = room
     const roomLink = document.createElement('a')
     roomLink.href = `/${room}`
-    roomLink.innerText = 'join'
+    roomLink.innerText = 'Join the Room'
+    roomInput.value = '';
     roomContainer.append(roomElement)
     roomContainer.append(roomLink)
 })

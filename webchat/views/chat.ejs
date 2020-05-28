@@ -20,9 +20,11 @@
       <%= room %><a href="/<%= room %>">Join the Room</a><% }) %>
     </div>
   </div>
+  <div id = "submit-container">
     <form action="/room" method="POST">
-      <input name="room" type="text" required>
+      <input name="room" type="text" id="room-input" required>
       <button type="submit">New Room</button>
     </form>
+  </div>
 </body>
 </html>

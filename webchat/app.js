@@ -45,10 +45,10 @@ app.get('/:room', (req, res) => {
 
 app.post('/room', (req, res) => {
   if (rooms[req.body.room] != null) {
-    return res.redirect('/')
+    return res.redirect('/chat')
   }
   rooms[req.body.room] = { users: {} }
-  res.redirect(req.body.room)
+  // res.redirect(req.body.room)
   // Send message that new room was created
   io.emit('room-created', req.body.room)
 })

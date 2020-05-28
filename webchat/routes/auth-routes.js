@@ -30,8 +30,8 @@ router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
      }
   }));*/
   console.log("GOT HERE IN ROUTER", req.user);
-  //res.redirect('/chat')
-    res.render('chat',{rooms:{}})
+    res.redirect('/chat')
+    //res.render('chat',{rooms:{}})
   // res.send();
   // res.render('hello')
 });
