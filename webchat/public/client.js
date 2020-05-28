@@ -4,14 +4,13 @@ const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
 const roomContainer = document.getElementById('room-container')
 const roomInput = document.getElementById('room-input')
-const userContainer =  document.getElementById('people')
+const roomForm = document.getElementById('submit-container')
 
 let globalBobSharedKey;
 
 if(messageForm != null){
     const name = prompt('What is your name?')
     appendMessage('You joined')
-    appendUser(name)
     socket.emit('new-user', roomName,name)
 
     messageForm.addEventListener('submit', e => {
@@ -43,15 +42,11 @@ socket.on('chat-message', data => {
 })
 
 socket.on('user-connected', name => {
-    appendUser(name)
     appendMessage(`${name} connected`)
 })
 
-
-
 socket.on('user-disconnected', name => {
     appendMessage(`${name} disconnected`)
-
 })
 
 
@@ -59,12 +54,6 @@ function appendMessage(message) {
   const messageElement = document.createElement('div')
   messageElement.innerText = message
   messageContainer.append(messageElement)
-}
-
-function appendUser(user){
-    const userElement = document.createElement('div')
-    userElement.innerText = user
-    userContainer.append(userElement)
 }
 
 function encrypt(message){
