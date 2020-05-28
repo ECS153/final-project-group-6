@@ -49,6 +49,8 @@ socket.on('user-connected', name => {
 
 socket.on('user-disconnected', name => {
     appendMessage(`${name} disconnected`)
+    var userElement = document.getElementById(name)
+    userElement.remove()
 })
 
 
@@ -60,6 +62,7 @@ function appendMessage(message) {
 
 function appendUser(user){
     const userElement = document.createElement('div')
+    userElement.id = user
     userElement.innerText = user
     userContainer.append(userElement)
 }
