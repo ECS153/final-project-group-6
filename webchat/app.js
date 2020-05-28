@@ -40,7 +40,7 @@ app.get('/:room', (req, res) => {
     if (rooms[req.params.room] == null) {
       return res.redirect('/chat')
     }
-    res.render('room', {roomName: req.params.room })
+    res.render('room', {roomName: req.params.room, members: rooms[req.params.room].users})
 })
 
 app.post('/room', (req, res) => {

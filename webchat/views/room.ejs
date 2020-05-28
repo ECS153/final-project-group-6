@@ -8,6 +8,7 @@
     <title>speakEZ</title>
     <script>
         const roomName = "<%= roomName %>"
+        const members = "<%= members %>"
     </script>
     <script defer src="http://localhost:8008/socket.io/socket.io.js"></script>
     <script defer src="/public/client.js"></script>
@@ -28,6 +29,13 @@
                 <!-- if send button is hit, -->
                 <button type="submit" id="send-button">Send</button>
             </form>
+        </div>
+    </div>
+    <div id="people">
+        <p>People</p>
+        <% Object.values(members).forEach(member =>{ %>
+        <div>
+            <%= member %><% }) %>
         </div>
     </div>
 </main>
