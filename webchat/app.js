@@ -40,7 +40,7 @@ app.get('/:room', (req, res) => {
     if (rooms[req.params.room] == null) {
       return res.redirect('/chat')
     }
-    res.render('room', {roomName: req.params.room })
+    res.render('room', {roomName: req.params.room, members: rooms[req.params.room].users})
 })
 
 app.post('/room', (req, res) => {
@@ -58,7 +58,8 @@ app.post('/room', (req, res) => {
     socket.on('new-user',(room, name) => {
       socket.join(room)
       rooms[room].users[socket.id] = name
-      socket.to(room).broadcast.emit('user-connected', name)
+      //socket.to(room).broadcast.emit('user-connected', name)
+        socket.to(room).broadcast.emit('user-connected', name)
     })
     socket.on('send-chat-message',(room, message)=> {
         socket.to(room).broadcast.emit('chat-message', { message: message, name: rooms[room].users[socket.id] })
