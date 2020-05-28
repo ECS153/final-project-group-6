@@ -3,33 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="/public/assets/chat.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Chat App</title>
+  <title>speakEZ</title>
   <script defer src="http://localhost:8008/socket.io/socket.io.js"></script>
-  <script defer src="client.js"></script>
+  <script defer src="/public/client.js"></script>
 </head>
 
+<header>
+  <h1>Hi</h1>
+  <a href="/auth/logout" class="button">Logout</a>
+</header>
 <body>
-  <header>
-    <h1>SpeakEZ</h1>
-    <a href="/auth/logout" class="button">Logout</a>
-  </header>
-  <main>
-    <div id="textContainer">
-  <div id="message-container"></div>
-
-  <div id="sendBox">
-  <form id="send-container">
-    <input type="text" id="message-input">
-    <!-- if send button is hit, -->
-    <button type="submit" id="send-button">send</button>
-  </form>
-</div>
-</div>
-</main>
-
-  <script>
-  </script>
+  <div id="room-container">
+    <% Object.keys(rooms).forEach(room =>{ %>
+    <div>
+      <%= room %><a href="/<%= room %>">Join the Room</a><% }) %>
+    </div>
+  </div>
+    <form action="/room" method="POST">
+      <input name="room" type="text" required>
+      <button type="submit">New Room</button>
+    </form>
 </body>
 </html>

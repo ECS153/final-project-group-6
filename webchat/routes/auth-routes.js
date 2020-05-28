@@ -22,14 +22,16 @@ router.get('/google', passport.authenticate('google', {
 
 // callback route for google to redirect to
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-  // res.redirect(url.format({
-  //   pathname: "/chat",
-  //   query: {
-  //     "user": req.user.displayName
-  //   }
-  // }));
-  // console.log("GOT HERE IN ROUTER", req.user);
-  res.redirect('/chat')
+  /*
+  res.redirect(url.format({
+     pathname: "/chat",
+     query: {
+       "user": req.user.displayName
+     }
+  }));*/
+  console.log("GOT HERE IN ROUTER", req.user);
+  //res.redirect('/chat')
+    res.render('chat',{rooms:{}})
   // res.send();
   // res.render('hello')
 });

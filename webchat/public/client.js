@@ -2,34 +2,50 @@ const socket = io('http://localhost:8008')
 const messageContainer = document.getElementById('message-container')
 const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
+const roomContainer = document.getElementById('room-container')
 
 let globalBobSharedKey;
 
-const name = prompt('What is your name?')
-appendMessage('You joined')
-socket.emit('new-user', name)
+if(messageForm != null){
+    const name = prompt('What is your name?')
+    appendMessage('You joined')
+    socket.emit('new-user', roomName,name)
+
+    messageForm.addEventListener('submit', e => {
+        e.preventDefault()
+    const message = messageInput.value
+    appendMessage(`You: ${message}`)
+    //encrypt below
+    //socket.emit('send-chat-message', encrypt(message))
+    socket.emit('send-chat-message', roomName,message)
+    messageInput.value = ''
+  })
+}
+
+socket.on('room-created', room => {
+    const roomElement = document.createElement('div')
+    roomElement.innerText = room
+    const roomLink = document.createElement('a')
+    roomLink.href = `/${room}`
+    roomLink.innerText = 'join'
+    roomContainer.append(roomElement)
+    roomContainer.append(roomLink)
+})
 
 socket.on('chat-message', data => {
   //decrypt here
-  appendMessage(`${data.name}: ${decrypt(data.message, globalBobSharedKey)}`)
+  //appendMessage(`${data.name}: ${decrypt(data.message, globalBobSharedKey)}`)
+    appendMessage(`${data.name}: ${data.message}`)
 })
 
 socket.on('user-connected', name => {
-  appendMessage(`${name} connected`)
+    appendMessage(`${name} connected`)
 })
 
 socket.on('user-disconnected', name => {
-  appendMessage(`${name} disconnected`)
+    appendMessage(`${name} disconnected`)
 })
 
-messageForm.addEventListener('submit', e => {
-  e.preventDefault()
-  const message = messageInput.value
-  appendMessage(`You: ${message}`)
-  //encrypt below
-  socket.emit('send-chat-message', encrypt(message))
-  messageInput.value = ''
-})
 
 function appendMessage(message) {
   const messageElement = document.createElement('div')
