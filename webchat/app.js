@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 
 const users = {}
 var connectedFlag = 0
-const rooms = { }
+const rooms = {  }
 
 
 app.get('/chat', (req, res) =>{

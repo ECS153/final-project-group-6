@@ -10,22 +10,32 @@
   <script defer src="/public/client.js"></script>
 </head>
 
-<header>
-  <h1>Welcome to speakEZ</h1>
-  <a href="/auth/logout" class="button">Logout</a>
-</header>
-<body>
-  <div id="room-container">
-    <% Object.keys(rooms).forEach(room =>{ %>
-    <div>
-      <%= room %><a href="/<%= room %>">Join the Room</a><% }) %>
-    </div>
-  </div>
-  <div id = "submit-container">
-    <form action="/room" method="POST">
-      <input name="room" type="text" id="room-input" required>
-      <button type="submit">New Room</button>
-    </form>
-  </div>
-</body>
+  <body>
+    <main>
+      <div id="LeftSide">
+
+        <h1>Select A Chat Room</h1>
+
+        <div id="room-container">
+          <% Object.keys(rooms).forEach(room =>{ %>
+            <div id="new-room">
+            <%= room %> <a href="/<%= room %>" id="join-room">Join the Room</a><% }) %>
+            </div>
+        </div>
+
+        <div id = "submit-container">
+          <form action="/room" method="POST">
+            <input name="room" placeholder="Type a room name here..." id="room-input" type="text" required> </input>
+            <button type="submit" id="newRoom">Create New Room</button>
+          </form>
+        </div>
+      </div>
+
+      </div>
+      <div id="RightSide">
+        <h2>Welcome to SpeakEZ</h2>
+        <a href="/auth/logout" class="button">SIGN OUT?</a>
+      </div>
+    </main>
+  </body>
 </html>

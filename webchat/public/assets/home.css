@@ -22,7 +22,7 @@ img {
     justify-content: center;
     background-image: linear-gradient(to right, #606b9b, #b191d4);
 /*     box-shadow: 0px 25px 75px 25px #bfbfbf; */
-    width: 50%;
+    flex-grow: 1;
 /*   text-align: left; */
     padding: 0 10% 0 10%;
 }
@@ -31,7 +31,7 @@ img {
 #RightSide {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 45%;
   justify-content: center;
   align-items: center;
 }
@@ -91,7 +91,7 @@ h3 {
 /*   margin: 4px 2px; */
   cursor: pointer;
   transition: transform .2s;
-  border-radius: 50px;
+  border-radius: 10rem;
 }
 
 .button:hover {
