@@ -10,14 +10,14 @@ let globalBobSharedKey;
 
 if(messageForm != null){
     const name = prompt('What is your name?')
-    appendMessage('You joined')
+    appendYourMessage('You joined')
     appendUser(name)
     socket.emit('new-user', roomName,name)
 
     messageForm.addEventListener('submit', e => {
         e.preventDefault()
         const message = messageInput.value
-        appendMessage(`You: ${message}`)
+        appendYourMessage(`You: ${message}`)
         //encrypt below
         //socket.emit('send-chat-message', encrypt(message))
         socket.emit('send-chat-message', roomName,message)
@@ -53,10 +53,40 @@ socket.on('user-disconnected', name => {
     userElement.remove()
 })
 
-
 function appendMessage(message) {
   const messageElement = document.createElement('div')
   messageElement.innerText = message
+  messageElement.style.display = "inline-block"
+  messageElement.style.float = "left"
+  messageElement.style.maxWidth = "50vw"
+  messageElement.style.overflowWrap = "break-word"
+  messageElement.style.backgroundColor = "#e5e5e5"
+  messageElement.style.color = "black"
+  messageElement.style.borderRadius = ".9em"
+  messageElement.style.padding = "5px 12.5px 5px 12.5px"
+  messageElement.style.margin = "0.5% 50% 0.5% 5%"
+
+  // messageElement.style.position = "relative"
+
+  messageContainer.append(messageElement)
+}
+
+function appendYourMessage(message) {
+  const messageElement = document.createElement('div')
+  messageElement.innerText = message
+  messageElement.style.display = "inline-block"
+  messageElement.style.float = "right"
+  messageElement.style.maxWidth = "50vw"
+  messageElement.style.overflowWrap = "break-word"
+  messageElement.style.backgroundColor = "#b191d4"
+  messageElement.style.color = "white"
+  messageElement.style.borderRadius = ".9em"
+  messageElement.style.padding = "5px 12.5px 5px 12.5px"
+  messageElement.style.margin = "0.5% 5% 0.5% 50%"
+
+  // messageElement.style.position = "relative"
+
+
   messageContainer.append(messageElement)
 }
 
@@ -124,21 +154,21 @@ function encrypt(message){
 
   // globalPayload64 = payload64
 
-  
+
   //Bob does these calculations
 
    //payload = IV + encrypted + auth tag
-  
+
   const payload = IV.toString('hex') + encrypted + auth_tag
 
   const payload64 = Buffer.from(payload, 'hex').toString('base64')
   globalPayload64 = payload64
-  
+
   return payload64
 }
 
 function decrypt(payload64, bobSharedKey){
- 
+
 
   const bob_payload = Buffer.from(payload64, 'base64').toString('hex')
 

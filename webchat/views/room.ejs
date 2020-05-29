@@ -20,6 +20,13 @@
     <a href="/chat" class="button">Back</a>
 </header>
 <main>
+  <div id="people">
+      <p>People</p>
+      <% Object.values(members).forEach(member =>{ %>
+      <div>
+          <%= member %><% }) %>
+      </div>
+  </div>
     <div id="textContainer">
         <div id="message-container"></div>
 
@@ -31,13 +38,7 @@
             </form>
         </div>
     </div>
-    <div id="people">
-        <p>People</p>
-        <% Object.values(members).forEach(member =>{ %>
-        <div>
-            <%= member %><% }) %>
-        </div>
-    </div>
+
 </main>
 </body>
 </html>
