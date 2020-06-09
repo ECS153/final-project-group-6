@@ -45,18 +45,22 @@ Public: client.js and bundle.js
 public/asset: chat.css home.css room.css
 
  - style sheets for chat, home, and room pages
+ 
+Flow:
 
-login/register google account
+ - login/register google account (home.ejs)
+ - transition page to select room to chat (chat.ejs)
+ - actual chat room (room.ejs)
 
-Main page
-
-Chat room
+    
+   
+   Chat room
 
 # How our project works
 We really wanted to focus on two key aspects for our project: having multiple users chatting and implementing Diffie Hellman. As mentioned above in our file structure, this occurs in webchat/public/client.js
 
 ## Chatting with multiple users
-We use socket.io to accomplish this. Sockets enable the server to push messages to clients. When a user writes a chat message, the server could get it and push it to all other connected users. In order to establish a connection, Socket.IO has two parts. The first part is that a server integrates with the Node.JS HTTP Server socket.io The second part is a client library that loads on the browser side socket.io-client. After the connection, we need to send the chat messages in the chat room. This is accomplished by the broadcasting mechanism, emitting the events from the server to the rest of the users. On the server side, we will first define the event of “chat message”, and broadcast the message to all the connected users using the broadcast flag in socket. On the client side, we could capture a chat message event and pass it to the page.
+Jade will finish here. 
 
 ## Implementing Diffie Hellman
 We implemented Diffie Hellman using the [crypto API](https://nodejs.org/api/crypto.html#crypto_class_diffiehellman). In client.js, I created an encrypt and decrypt function. 
@@ -67,7 +71,7 @@ First, we want to create these two parties that will send encrypted messages to 
 
     const  cipher = crypto.createCipheriv('aes-256-gcm', Buffer.from(aliceSharedKey, 'hex'), IV)
 
-Here, we create a cipher using aes-256-gcm, a buffer from Alice's shared key, and the IV we just generated. Now what does aes-256-gcm mean? AES is a symmetric encrption algortithm, and we are supportting it with a block length of 256 bits. 
+Here, we create a cipher using aes-256-gcm, a buffer from Alice's shared key, and the IV we just generated. Now what does aes-256-gcm mean? AES is a symmetric encryption algorithm, and we are supporting it with a block length of 256 bits. 
 
 GCM means Galois/ counter mode. GCM allows us to send authenticated messages. Now, the security that comes with using GCM is confidentiality, integrity, and authenticity. Confidentiality means that without the key, no one can read the message. Integrity means that no one had changed the content of the message. Authenticity means that the originator of the message can be verified.   
 
@@ -78,7 +82,6 @@ Next, we need to create the payload. In cryptography, I learned that the payload
     //payload = IV + encrypted + auth tag
     
     const  payload = IV.toString('hex') + encrypted + auth_tag
-
 
 ![](https://scontent-sjc3-1.xx.fbcdn.net/v/t1.15752-9/s2048x2048/101631387_259445015119792_6536645244299609422_n.png?_nc_cat=102&_nc_sid=b96e70&_nc_ohc=TJG9EyBEfEsAX8CGRbS&_nc_ht=scontent-sjc3-1.xx&oh=60629a3af3a2d0859b33e715df8fa7b4&oe=5F068848)
 Here is a screenshot showing the encrypted and decrypted messages sent across users. You can access this console log by right clicking on the broswer at localhost, clicking inspect, and the selecting console. 
