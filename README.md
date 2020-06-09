@@ -2,7 +2,7 @@
 Authors: Brian, Emily, Jade (Huiyu), and Kira
 
 ## What is speakEZ
-  We built a messaging web app that supports up to n users and implements encryption using Diffie Hellman
+  We built a simple messaging web app that supports group messaging and implements encryption using Diffie Hellman.
 
 ## Running our code
 
@@ -50,20 +50,17 @@ Flow:
 
  - login/register google account (home.ejs)
  - transition page to select room to chat (chat.ejs)
- - actual chat room (room.ejs)
+ - chat room where any number of users can message each other (room.ejs)
 
-    
-   
-   Chat room
 
 # How our project works
 We really wanted to focus on two key aspects for our project: having multiple users chatting and implementing Diffie Hellman. As mentioned above in our file structure, this occurs in webchat/public/client.js
 
 ## Chatting with multiple users
-We use socket.io to accomplish this. Sockets enable the server to push messages to clients. When a user writes a chat message, the server could get it and push it to all other connected users. In order to establish a connection, Socket.IO has two parts. The first part is that a server integrates with the Node.JS HTTP Server socket.io The second part is a client library that loads on the browser side socket.io-client. After the connection, we need to send the chat messages in the chat room. This is accomplished by the broadcasting mechanism, emitting the events from the server to the rest of the users. On the server side, we will first define the event of “chat message”, and broadcast the message to all the connected users using the broadcast flag in socket. On the client side, we could capture a chat message event and pass it to the page.
+We used [socket.io](https://socket.io/) to accomplish this. Sockets enable the server to push messages to clients. When a user writes a chat message, the server could get it and push it to all other connected users. In order to establish a connection, Socket.IO has two parts. The first part is that a server integrates with the Node.JS HTTP Server socket.io The second part is a client library that loads on the browser side socket.io-client. After the connection, we need to send the chat messages in the chat room. This is accomplished by the broadcasting mechanism, emitting the events from the server to the rest of the users. On the server side, we will first define the event of “chat message”, and broadcast the message to all the connected users using the broadcast flag in socket. On the client side, we could capture a chat message event and pass it to the page.
 
 ## Implementing Diffie Hellman
-We implemented Diffie Hellman using the [crypto API](https://nodejs.org/api/crypto.html#crypto_class_diffiehellman). In client.js, I created an encrypt and decrypt function. 
+We implemented Diffie Hellman using the [crypto API](https://nodejs.org/api/crypto.html#crypto_class_diffiehellman). In client.js, we created an encrypt and decrypt function. 
 
 ### Encrypt:
 
