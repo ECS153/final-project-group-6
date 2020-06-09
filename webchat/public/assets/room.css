@@ -1,0 +1,113 @@
+
+
+body {
+  background: white;
+  margin: 0 auto;
+  min-height: 100vh;
+
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: source sans pro, sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  font-family: source sans pro, sans-serif;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin: 0 5% 0 5%;
+}
+
+h1 {
+  color: #b191d4;
+  /* font-family: source sans pro, sans-serif; */
+  font-weight: lighter;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+#textContainer {
+  /* margin: 0 5% 0 5%; */
+
+}
+
+#sendBox {
+  /* margin: 0 10% 0 0; */
+}
+
+
+.button {
+  background-color: #b191d4;
+      /* background-image: linear-gradient(to bottom right, #b191d4, #606b9b); */
+      border: none;
+      color: white;
+      padding: 3px 17px 3px 17px;
+      text-align: center;
+      /* width: 50%; */
+      font-size: 1.25rem;
+      text-decoration: none;
+      /* display: inline-block; */
+      /* font-size: 16px; */
+      /* margin: 4px 2px; */
+      cursor: pointer;
+      /* transition: transform .2s; */
+      border-radius: .9rem;
+      /* height: 20px; */
+      font-weight: lighter;
+}
+
+#message-container {
+  font-weight: lighter;
+   overflow-y: auto;
+   max-height: 55vw;
+
+}
+
+#send-container {
+  position: fixed;
+    padding: 30px 15px 30px 15px;
+    bottom: 0;
+    background-color: white;
+    max-width: 1200px;
+    width: 82.5%;
+    display: flex;
+    margin: 0 2.5%;
+    font-family: source sans pro, sans-serif;
+    border-radius: .4em;
+
+}
+#people {
+  display: none;
+}
+
+#send-button {
+  padding: 5px 12.5px 5px 12.5px;
+      background-color: #b191d4;
+      font-size: 1rem;
+      font-family: source sans pro, sans-serif;
+      border: none;
+      color: white;
+      font-weight: lighter;
+      border-radius: .9em;
+
+}
+#message-input {
+  flex-grow: 1;
+      font-family: source sans pro, sans-serif;
+      font-weight: lighter;
+      font-size: 1rem;
+      border-radius: .9em;
+      margin-right: 2%;
+      background-color: #E5E5E5;
+      padding: 5px 0 5px 12.5px;
+      /* text-decoration: none; */
+      /* height: 20px; */
+      outline: none;
+      border: none;
+}

@@ -1,0 +1,150 @@
+body {
+  background-image: white;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* font-family: source sans pro, sans-serif; */
+  min-height: 100vh;
+}
+
+/* header {
+    display: flex;
+    flex-direction: row;
+    font-family: source sans pro, sans-serif;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 0 5% 0 5%;
+  } */
+
+#LeftSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*     box-shadow: 0px 25px 75px 25px #bfbfbf; */
+  flex-grow: 1;
+  /*   text-align: left; */
+  /* padding: 0 10% 0 10%; */
+
+  color: #b191d4;
+  align-items: center;
+}
+
+#RightSide {
+  display: flex;
+  flex-direction: column;
+  /* width: %; */
+  width: 50%;
+  background-image: linear-gradient(to right, #b191d4, #606b9b);
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+h1 {
+  color: #b191d4;
+  font-family: source sans pro, sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  font-weight: normal;
+  margin-bottom: 5%;
+}
+
+h2 {
+  color: #ffffff;
+  font-family: source sans pro, sans-serif;
+  font-size: 3.5rem;
+  text-align: center;
+  margin: 0% 0 10% 0;
+}
+
+#room-container {
+  font-family: source sans pro, sans-serif;
+  font-weight: lighter;
+  margin: 0 5% 0 5%;
+  /* color: white; */
+  /* padding: 0.5em; */
+}
+
+#newRoom {
+  padding: 5px 12.5px 5px 12.5px;
+  background-color: #b191d4;
+  font-size: 1rem;
+  font-family: source sans pro, sans-serif;
+  border: none;
+  color: white;
+  font-weight: lighter;
+  border-radius: 0.9em;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: space-around; */
+}
+
+#submit-container {
+  font-family: source sans pro, sans-serif;
+  /* border-radius: .9em; */
+  font-weight: lighter;
+  /* margin: 0 5% 0 5%; */
+  /* padding: 0.5em; */
+  width: 100%;
+  display: flex;
+  /* align-items: baseline; */
+  flex-direction: column;
+}
+
+#room-input {
+  font-family: source sans pro, sans-serif;
+  font-weight: lighter;
+  font-size: 1rem;
+  border-radius: 0.9em;
+  margin: 5% 2.5% 0% 6.5%;
+  flex-grow: 1;
+  width: 50%;
+  background-color: #E5E5E5;
+  padding: 5px 0 5px 12.5px;
+  /* text-decoration: none; */
+  /* height: 20px; */
+  outline: none;
+  border: none;
+}
+
+#new-room {
+
+}
+
+#join-room {
+
+}
+
+.button {
+  font-family: source sans pro, sans-serif;
+  background-color: #b191d4;
+  /* font-weight: lighter; */
+  border: none;
+  color: white;
+  padding: 2.5% 13% 2.5% 13%;
+  text-align: center;
+  /* width: 50%; */
+  font-size: 1.5rem;
+  text-decoration: none;
+  /* display: inline-block; */
+  /* font-size: 16px; */
+  /* margin: 4px 2px; */
+  cursor: pointer;
+  transition: transform 0.2s;
+  border-radius: 10rem;
+  background-color: transparent;
+  /* opacity: 0; */
+  border: 3px solid #ffffff;
+}
+
+.button:hover {
+  transform: scale(
+    1.2
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
