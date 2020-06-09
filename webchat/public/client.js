@@ -65,8 +65,6 @@ function appendMessage(message) {
   messageElement.style.padding = "5px 12.5px 5px 12.5px"
   messageElement.style.margin = "0.5% 50% 0.5% 5%"
 
-  // messageElement.style.position = "relative"
-
   messageContainer.append(messageElement)
 }
 
@@ -141,18 +139,6 @@ function encrypt(message){
     encrypted: encrypted,
     auth_tag: auth_tag
   })
-
-
-  // //payload = IV + encrypted + auth tag
-
-  // const payload = IV.toString('hex') + encrypted + auth_tag
-
-  // const payload64 = Buffer.from(payload, 'hex').toString('base64')
-
-  // globalPayload64 = payload64
-
-
-  //Bob does these calculations
 
    //payload = IV + encrypted + auth tag
     const payload = IV.toString('hex') + encrypted + auth_tag
