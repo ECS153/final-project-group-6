@@ -5,8 +5,8 @@ const messageInput = document.getElementById('message-input')
 const roomContainer = document.getElementById('room-container')
 const roomInput = document.getElementById('room-input')
 const userContainer =  document.getElementById('people')
+const crypto = require('crypto')
 
-let globalBobSharedKey;
 
 if(messageForm != null){
     const name = prompt('What is your name?')
@@ -19,8 +19,7 @@ if(messageForm != null){
         const message = messageInput.value
         appendYourMessage(`You: ${message}`)
         //encrypt below
-        //socket.emit('send-chat-message', encrypt(message))
-        socket.emit('send-chat-message', roomName,message)
+        socket.emit('send-chat-message', roomName,encrypt(message))
         messageInput.value = ''
     })
 }
@@ -38,8 +37,8 @@ socket.on('room-created', room => {
 
 socket.on('chat-message', data => {
   //decrypt here
-  //appendMessage(`${data.name}: ${decrypt(data.message, globalBobSharedKey)}`)
-    appendMessage(`${data.name}: ${data.message}`)
+    const msg = decrypt(data.message.payload, data.message.key)
+    appendMessage(`${data.name}: ${msg}`)
 })
 
 socket.on('user-connected', name => {
@@ -115,8 +114,6 @@ function encrypt(message){
   const aliceSharedKey = alice.computeSecret(bobPubKey64, 'base64', 'hex')
   const bobSharedKey = bob.computeSecret(alicePubKey64, 'base64', 'hex')
 
-  globalBobSharedKey = bobSharedKey
-
   //alice's shared key is the same as bob's
 
   const MESSAGE = message
@@ -140,7 +137,7 @@ function encrypt(message){
 
   //test print
   console.table({
-    IV: IV.toString,
+    IV: IV.toString('hex'),
     encrypted: encrypted,
     auth_tag: auth_tag
   })
@@ -158,13 +155,11 @@ function encrypt(message){
   //Bob does these calculations
 
    //payload = IV + encrypted + auth tag
+    const payload = IV.toString('hex') + encrypted + auth_tag
+    const payload64 = Buffer.from(payload, 'hex').toString('base64')
+    var obj = {payload: payload64, key: bobSharedKey}
 
-  const payload = IV.toString('hex') + encrypted + auth_tag
-
-  const payload64 = Buffer.from(payload, 'hex').toString('base64')
-  globalPayload64 = payload64
-
-  return payload64
+  return obj
 }
 
 function decrypt(payload64, bobSharedKey){
@@ -174,7 +169,7 @@ function decrypt(payload64, bobSharedKey){
 
   const bob_iv = bob_payload.substr(0,32)
   //minus 32 for IV and 32 for auth tag
-  const bob_encrypted = bob_payload.substr(32, bob_payload,length - 32 - 32)
+  const bob_encrypted = bob_payload.substr(32, bob_payload.length - 32 - 32)
   const bob_auth_tag = bob_payload.substr(bob_payload.length - 32, 32)
 
   try {
@@ -185,7 +180,7 @@ function decrypt(payload64, bobSharedKey){
     let decrypted = decipher.update(bob_encrypted, 'hex', 'utf8')
     decrypted += decipher.final('utf8')
     console.table({
-      IV: bob_iv.toString,
+      IV: bob_iv,
       decrypted: decrypted,
       auth_tag: bob_auth_tag
     })

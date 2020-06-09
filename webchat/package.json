@@ -15,9 +15,12 @@
     "socket.io": "^2.3.0",
     "url": "^0.11.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "browserify": "^16.5.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify public/client.js -o public/bundle.js",
     "start": "node server.js"
   },
   "author": "",
